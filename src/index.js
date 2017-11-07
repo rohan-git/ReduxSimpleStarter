@@ -6,4 +6,4 @@ const App = function(){
   return <div> Hi! </div>;
 }
 
-ReactDOM.render(<App />);
+ReactDOM.render(<App />, document.querySelector('.container'));
