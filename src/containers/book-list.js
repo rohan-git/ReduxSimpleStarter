@@ -1,6 +1,5 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 export default class BookList extends Component {
 
@@ -26,3 +25,12 @@ export default class BookList extends Component {
       );
     }
   }
+
+function mapStateToProps(state){
+
+  return {
+    books: state.books;
+  };
+}
+
+export default connect(mapStateToProps)(BookList);
