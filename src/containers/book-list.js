@@ -3,30 +3,36 @@ import { connect } from 'react-redux';
 import { selectBook } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
-export default class BookList extends Component {
+class BookList extends Component {
 
   renderList() {
+
     return this.props.books.map((book) => {
+
         return (
-            <li key="book.title" className = "list-group-item" >
+            <li key="book.title" className = "list-group-item" onclick="selectBook">
             { book.title }
-            < /li> );
+            </li> );
         })
   }
 
+  selectBook(){
+    
+  }
+
   render() {
+
     return (
-      <ul className = "list-group col-sm-4" > {
-        this.renderList()
-      }
-      < BookItem >
-      < /BookItem>
+      <ul className="list-group col-sm-4" >
+        { this.renderList() }
+      <BookItem> </BookItem>
       </ul>
     );
+
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
   return {
     books: state.books
   };
