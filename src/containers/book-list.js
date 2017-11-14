@@ -27,10 +27,13 @@ export default class BookList extends Component {
   }
 
 function mapStateToProps(state){
-
   return {
     books: state.books;
   };
 }
 
-export default connect(mapStateToProps)(BookList);
+function mapDispactchToProps(dispatch) {
+  return bindActionCreators({selectBook: selectBook}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispactchToProps)(BookList);
