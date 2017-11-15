@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
 
   constructor(props){
     super(props);
@@ -14,7 +14,7 @@ export default class SearchBar extends Component {
 
     var that = this;
     return (
-            <form onSubmit={this.onFormSubmit} className="input-group">
+            <form onSubmit={()=> this.onFormSubmit} className="input-group">
             <span className="input-group button">
               <input
                 placeholder="Give a 5 day forecast in your favorite cities"
@@ -41,5 +41,14 @@ export default class SearchBar extends Component {
 
   onFormSubmit(event){
     event.preventDefault();
+
+    this.props.fetchWeather(this.state.form);
+    this.setState({term: ''});
   }
 }
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
