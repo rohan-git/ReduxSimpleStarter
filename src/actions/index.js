@@ -1,7 +1,4 @@
 import axios from 'axios';
-import connect from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchWeather } from '../actions/index';
 
 const API_KEY = '91e924f88d327fb06984955a693516eb';
 export const FETCH_WEATHER  = 'FETCH_WEATHER';
