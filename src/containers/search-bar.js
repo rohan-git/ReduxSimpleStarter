@@ -17,9 +17,9 @@ class SearchBar extends Component {
 
     var that = this;
     return (
-            <form onSubmit={ this.onFormSubmit } className="input-group">
+            <form onSubmit={ this.onFormSubmit } className="form-inline input-group">
             <span className="input-group button">
-              <input
+              <input className="form-control"
                 placeholder="Give a 5 day forecast in your favorite cities"
                 className=""
                 value={this.state.term}
