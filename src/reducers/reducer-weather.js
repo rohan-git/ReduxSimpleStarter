@@ -5,6 +5,7 @@ export default function(state = [], action){
   switch (action.type) {
     case FETCH_WEATHER:
        console.log('sta1te received:', state);
+       console.log('data:', action);
 
        //return state.concat([action.payload.data]);   // DO NOT `PUSH` CITIES IT WILL MODIFY STATE
        return [action.payload.data, ...state];   // this will concat new entries to top instead of bottom

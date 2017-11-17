@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 class WeatherList extends Component {
 
@@ -7,9 +8,9 @@ class WeatherList extends Component {
 
       var that = this;
 
-      console.log('x',that.renderWeather);
-      console.log('x2',this.props.weather);
-      console.log('x3' + this.props.weather.map(x => console.log('xx'+ x)));
+      //console.log('x',that.renderWeather);
+      //console.log('x2',this.props.weather);
+      //console.log('x3' + this.props.weather.map(x => console.log('xx'+ x)));
 
       return (
         <table className="table table-hover">
@@ -32,11 +33,20 @@ class WeatherList extends Component {
 
     console.log('in renderWeather');
 
-    return (
-            <tr key={data.city.id}>
-              <td> {data.city.name} </td>
-            </tr>
-          );
+    if(data){
+      const temps = data.list.map(weather => weather.main.temp);
+
+      return (
+              <tr key={data.city.id}>
+                <td> {data.city.name} </td>
+                <td>
+                  <Sparklines height={120} width={180} data={temps}>
+                    <SparklinesLine color="blue" />
+                  </Sparklines>
+                </td>
+              </tr>
+            );
+        }
   }
 
 }
