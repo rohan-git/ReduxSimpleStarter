@@ -25,8 +25,6 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Route path="/" component={PostsIndex} />
-        <Route path="Hello" component={Hello} />
-        <Route path="GoodBye" component={GoodBye} />
       </div>
     </BrowserRouter>
   </Provider>
