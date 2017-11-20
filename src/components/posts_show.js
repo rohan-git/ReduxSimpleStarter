@@ -6,7 +6,10 @@ import { fetchPost } from '../actions';
 class PostsShow extends React.Component{
 
   componentDidMount(){
-    this.props.fetchPost();
+
+    const {id} = this.props.match.params.id;
+
+    this.props.fetchPost(id);
   }
 
   render (){
