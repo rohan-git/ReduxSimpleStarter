@@ -49,6 +49,7 @@ class PostsNew extends React.Component {
             <Field label="Category" name="category" component={this.renderField} />
             <Field label="Content" name="content" component={this.renderField} />
             <button type="submit" className="btn btn-primary"> Submit! </button>
+            <Link className="btn btn-danger" to="/"> Cancel</Link>
           </form>
         </div>
         <div className="col col-sm-6">
