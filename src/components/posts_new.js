@@ -32,7 +32,30 @@ class PostsNew extends React.Component {
   }
 }
 
+function validate(values){
+  // {title: ..., categories: ..., content: ...}
+
+  // if errors == empty --> form is valid
+  // if errors has values --> form is invalid
+  const errors = {};
+
+  if(!values.title|| values.title.length < 3){
+    errors.title = "Enter a title!";
+  }
+
+  if(!values.categories){
+    errors.title = "Enter a category!";
+  }
+
+  if(!values.content){
+    errors.title = "Enter some content!";
+  }
+
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: 'PostsNewForm' // ..just has to be a unique string
 
 })(PostsNew);
