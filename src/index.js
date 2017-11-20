@@ -8,6 +8,7 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 
 import PostsIndex from './components/posts_index.js';
+import PostsNew from './components/posts_new.js';
 import Hello from './components/hello.js';
 import GoodBye from './components/goodbye.js';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/hello" component={Hello} />
           <Route path="/goodbye" component={GoodBye} />
+          <Route path="/posts/new" component={PostsNew} />
           <Route path="/" component={PostsIndex} />
         </Switch>
       </div>

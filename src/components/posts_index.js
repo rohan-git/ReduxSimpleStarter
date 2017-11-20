@@ -2,6 +2,7 @@ import _ from 'lodash';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchPosts } from '../actions/index.js';
 
@@ -10,7 +11,6 @@ class PostsIndex extends React.Component {
   componentDidMount(){
 
     this.props.fetchPosts();
-
     console.log('in componentDidMount', this.props.posts);
   }
 
@@ -37,6 +37,9 @@ class PostsIndex extends React.Component {
     return (
         <div>
           <h3>Posts Index...< /h3>
+          <div className="right">
+            <Link className="btn btn-primary" to="/posts/new"> Add New Post </Link>
+          </div>
           <ul className="list-group">
             {this.renderPosts()}
           </ul>
@@ -49,4 +52,4 @@ function mapStateToProps(state){
   return {posts: state.posts};
 }
 
-export default connect (mapStateToProps, {fetchPosts})(PostsIndex);
+export default connect (mapStateToProps, { fetchPosts } )(PostsIndex);
