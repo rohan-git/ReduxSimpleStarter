@@ -13,11 +13,12 @@ class PostsShow extends React.Component {
 
   componentDidMount(){
 
-    const { id }  = this.props.match.params;
+    if(!this.props.post){
 
-    console.log('componentDidMount  ', id);
-
-    this.props.fetchPost(id);
+        const { id }  = this.props.match.params;
+        console.log('componentDidMount  ', id);
+        this.props.fetchPost(id);
+      }
   }
 
   render (){
