@@ -32,6 +32,29 @@ class PostsNew extends React.Component {
   }
 }
 
+function validate(values) {
+  //console.log(values) --> {title: 'ads', categories: 'asda', content: 'asdasd'}
+
+  if(!values.title){
+    errors.title = "Please enter a title";
+  }
+
+  if(!values.category){
+    errors.category = "Please enter a category";
+  }
+  
+  if(!values.content){
+    errors.content = "Please enter a content";
+  }
+
+  //if errors is empty --> form is valid
+  //if errors has properties --> form is NOT valid
+
+  const errors = {};
+
+  return errors;
+}
+
 export default reduxForm({
 
   form: 'postsNewForm'
