@@ -6,7 +6,7 @@ class PostsNew extends React.Component {
   renderField(field){
     return (
       <div className="form-group">
-        <label className="input-group">{field.name}</label>
+        <label className="input-group">{field.label}</label>
         <input className="form-control" type="text" { ...field.input} />
       </div>
     );
@@ -14,10 +14,13 @@ class PostsNew extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="container">
+        <h3> Add A New Post !</h3>
         <div className="col col-sm-6">
           <form className="form">
-            <Field name="title" component={this.renderField} />
+            <Field label="Title" name="title" component={this.renderField} />
+            <Field label="Category" name="category" component={this.renderField} />
+            <Field label="Content" name="content" component={this.renderField} />
           </form>
         </div>
         <div className="col col-sm-6">
