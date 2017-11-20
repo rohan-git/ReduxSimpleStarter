@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import reducers from './reducers';
 
@@ -16,11 +16,11 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-
+        <Switch>
           <Route path="/hello" component={Hello} />
           <Route path="/goodbye" component={GoodBye} />
           <Route path="/" component={PostsIndex} />
-
+        </Switch>
       </div>
     </BrowserRouter>
   </Provider>
