@@ -10,17 +10,35 @@ class PostsNew extends React.Component {
         <input className="form-control" type="text" { ...field.input} />
       </div>
     );
+
+      // {field.meta.error} added error holder
+  }
+
+  onSubmit(values){
+    console.log('form values', values);
   }
 
   render(){
+
+    // redux form handles
+    //
+    //   - values
+    //   - validation
+    //
+    // NOT submittal
+
+    var that = this;
+    const { handleSubmit } = this.props;
+
     return (
       <div className="container">
         <h3> Add A New Post !</h3>
         <div className="col col-sm-6">
-          <form className="form">
+          <form className="form" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field label="Title" name="title" component={this.renderField} />
             <Field label="Category" name="category" component={this.renderField} />
             <Field label="Content" name="content" component={this.renderField} />
+            <button type="submit" className="btn btn-primary"> Submit! </button>
           </form>
         </div>
         <div className="col col-sm-6">
@@ -35,6 +53,11 @@ class PostsNew extends React.Component {
 function validate(values) {
   //console.log(values) --> {title: 'ads', categories: 'asda', content: 'asdasd'}
 
+  //if errors is empty --> form is valid
+  //if errors has properties --> form is NOT valid
+
+  const errors = {};
+
   if(!values.title){
     errors.title = "Please enter a title";
   }
@@ -46,11 +69,6 @@ function validate(values) {
   if(!values.content){
     errors.content = "Please enter a content";
   }
-
-  //if errors is empty --> form is valid
-  //if errors has properties --> form is NOT valid
-
-  const errors = {};
 
   return errors;
 }
