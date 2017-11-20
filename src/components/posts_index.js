@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -10,7 +12,14 @@ class PostsIndex extends React.Component {
   }
 
   render(){
-    return (<div> Posts Index...  </div>);
+    return (
+        <div>
+          <h3>Posts Index...<h3>
+          <ul className="list-group">
+
+          </ul>
+        </div>
+    );
   }
 }
 
