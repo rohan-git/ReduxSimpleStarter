@@ -42,7 +42,7 @@ function validate(values) {
   if(!values.category){
     errors.category = "Please enter a category";
   }
-  
+
   if(!values.content){
     errors.content = "Please enter a content";
   }
@@ -56,6 +56,6 @@ function validate(values) {
 }
 
 export default reduxForm({
-
+  validate,         // equivalent to {validate: validate} as its inside {}
   form: 'postsNewForm'
 })(PostsNew);
