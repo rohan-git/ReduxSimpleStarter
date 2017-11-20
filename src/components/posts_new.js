@@ -9,6 +9,7 @@ class PostsNew extends React.Component {
       <div className="form-group">
         <label className="input-group"> {field.label} </label>
         <input className="form-control" type="text" {...field.input} />
+        {field.meta.error}
       </div>
     );
 
