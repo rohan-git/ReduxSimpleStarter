@@ -24,7 +24,7 @@ class PostsIndex extends React.Component {
           <div> {post.title} </div>
           <div> {post.categories} </div>
           <div>
-              <Link to="/posts/show">{post.content}</Link>
+            <Link to={`/posts/${post.id}`}>{post.content}</Link>
           </div>
         </li>
       );
