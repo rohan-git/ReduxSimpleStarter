@@ -9,16 +9,14 @@ class PostsNew extends React.Component {
                                               // ALSO, within that obj
                                               // ---- grab only `touched` and `error`
 
-    const className = `form-group ${meta.touched && meta.error ? 'has-danger': ''}`;
+    const className = `form-group ${touched && error ? 'has-danger': ''}`;
 
     return (
-      <div className="form-group">
+      <div className={className}>
         <label className="input-group">{field.label}</label>
         <input className="form-control" type="text" { ...field.input} />
         <div className="text-help">
-          { meta.touched ?
-            <span className={className}> meta.error </span>
-            : '' }
+          { touched ? error : '' }
         </div>
       </div>
     );
