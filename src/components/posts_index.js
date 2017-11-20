@@ -8,19 +8,45 @@ import { fetchPosts } from '../actions/index.js';
 class PostsIndex extends React.Component {
 
   componentDidMount(){
+
     this.props.fetchPosts();
+
+    console.log('in componentDidMount', this.props.posts);
+  }
+
+  renderPosts(){
+
+    console.log('in renderPosts', this.props.posts);
+
+    var x = _.map(this.props.posts, post => {
+      return (
+          <li className="list-group-item" key={post.id}>
+          <div> {post.title} </div>
+          <div> {post.categories} </div>
+          <div> {post.content} </div>
+        </li>
+      );
+    });
+
+    console.log(x);
+    return (x);
+
   }
 
   render(){
     return (
         <div>
-          <h3>Posts Index...<h3>
+          <h3>Posts Index...< /h3>
           <ul className="list-group">
-
+            {this.renderPosts()}
           </ul>
         </div>
     );
   }
 }
 
-export default connect (null, {fetchPosts})(PostsIndex);
+function mapStateToProps(state){
+  return {posts: state.posts};
+}
+
+export default connect (mapStateToProps, {fetchPosts})(PostsIndex);
