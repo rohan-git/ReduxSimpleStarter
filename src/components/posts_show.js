@@ -1,8 +1,13 @@
 import React, { component} from 'react';
 import Link from 'react-router-dom';
 
+import { fetchPost } from '../actions';
+
 class PostsShow extends React.Component{
 
+  componentDidMount(){
+    this.props.fetchPost();
+  }
 
   render (){
 
@@ -14,4 +19,8 @@ class PostsShow extends React.Component{
   }
 }
 
-export default PostsShow;
+function mapStateToProps(state){
+  return  {post : state.post};
+}
+
+export default connect(null, { fetchPost })(PostsShow);
