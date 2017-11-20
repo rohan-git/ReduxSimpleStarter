@@ -22,8 +22,11 @@ class PostsShow extends React.Component{
   }
 }
 
-function mapStateToProps(state){
-  return  {post : state.post};
+function mapStateToProps(state, ownProps){
+
+  return {
+    post: state.posts[ownProps.match.params.id]
+  };
 }
 
 export default connect(null, { fetchPost })(PostsShow);
