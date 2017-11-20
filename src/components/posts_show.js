@@ -24,11 +24,13 @@ class PostsShow extends React.Component {
   onDeleteClick(id){
 
     const { id }  = this.props.match.params;
-    this.props.deletePost(id)
+    this.props.deletePost(id, () => {
+      this.props.history.push("/");
+    });
 
   }
 
-  render (){
+  render(){
 
     const { post } = this.props;
 
@@ -64,4 +66,4 @@ function mapStateToProps(state, ownProps){
   };
 }
 
-export default connect(mapStateToProps, { fetchPost })(PostsShow);
+export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);
