@@ -21,8 +21,9 @@ class PostsNew extends React.Component {
               <h3> Add A New Post</h3>
               <div className="col col-lg-6">
               <form className="form form">
-                <Field name="title" label="title" component={this.renderField} />
-                <Field name="title" label="tags" component={this.renderField} />
+                <Field name="title" label="Title" component={this.renderField} />
+                <Field name="categories" label="Categories" component={this.renderField} />
+                <Field name="content" label="Content" component={this.renderField} />
               </form>
               </div>
               <div className="col col-lg-6"> .. </div>
