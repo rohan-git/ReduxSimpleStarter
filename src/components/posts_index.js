@@ -23,7 +23,9 @@ class PostsIndex extends React.Component {
           <li className="list-group-item" key={post.id}>
           <div> {post.title} </div>
           <div> {post.categories} </div>
-          <div> {post.content} </div>
+          <div>
+              <Link to="/posts/show">{post.content}</Link>
+          </div>
         </li>
       );
     });
