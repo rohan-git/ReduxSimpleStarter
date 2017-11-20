@@ -7,7 +7,9 @@ class PostsShow extends React.Component{
 
   componentDidMount(){
 
-    const {id} = this.props.match.params.id;
+    const { id }  = this.props.match.params;
+
+    console.log('componentDidMount  ', id);
 
     this.props.fetchPost(id);
   }
