@@ -88,7 +88,11 @@ function validate(values) {
   return errors;
 }
 
-export default reduxForm({
+export default reduxForm
+({
   validate,         // equivalent to {validate: validate} as its inside {}
   form: 'postsNewForm'
-})(PostsNew);
+})
+(
+  connect(null, {createPost))(PostsNew)
+);
