@@ -29,7 +29,8 @@ class PostsNew extends React.Component {
   }
 
   onSubmit(values){
-    console.log('form values', values);
+    console.log('creating new post with form values...', values);
+    this.props.createPost(values);
   }
 
   render(){
@@ -50,7 +51,7 @@ class PostsNew extends React.Component {
         <div className="col col-sm-6">
           <form className="form" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field label="Title" name="title" component={this.renderField} />
-            <Field label="Category" name="category" component={this.renderField} />
+            <Field label="Categories" name="categories" component={this.renderField} />
             <Field label="Content" name="content" component={this.renderField} />
             <button type="submit" className="btn btn-primary"> Submit! </button>
             <Link className="btn btn-danger" to="/"> Cancel</Link>
@@ -77,8 +78,8 @@ function validate(values) {
     errors.title = "Please enter a title";
   }
 
-  if(!values.category){
-    errors.category = "Please enter a category";
+  if(!values.categories){
+    errors.categories = "Please enter a category";
   }
 
   if(!values.content){
@@ -94,5 +95,5 @@ export default reduxForm
   form: 'postsNewForm'
 })
 (
-  connect(null, {createPost))(PostsNew)
+  connect(null, {createPost})(PostsNew)
 );
