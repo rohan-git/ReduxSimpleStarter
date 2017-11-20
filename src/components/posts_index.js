@@ -37,7 +37,7 @@ class PostsIndex extends React.Component {
     return (
         <div>
           <h3>Posts Index...< /h3>
-          <div className="right">
+          <div className="text-xs-right">
             <Link className="btn btn-primary" to="/posts/new"> Add New Post </Link>
           </div>
           <ul className="list-group">
