@@ -16,9 +16,12 @@ export function fetchPosts(){
   }
 }
 
-export function createPost(values){
+export function createPost(values, callback){
 
-  const request = axios.post(`${ROOT_URL}/posts/${API_KEY}`, values);
+  const request = axios.post(`${ROOT_URL}/posts/${API_KEY}`, values).then(() => {
+                         //console.log('received callback in action');
+                         callback();
+                       });
 
     // sending whole obj
     // obj should look like {key1: val1, key2: val2, key3: val3}

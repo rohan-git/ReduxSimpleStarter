@@ -30,7 +30,10 @@ class PostsNew extends React.Component {
 
   onSubmit(values){
     console.log('creating new post with form values...', values);
-    this.props.createPost(values);
+
+    this.props.createPost(values, () => {
+      this.props.history.push('/');
+    });
   }
 
   render(){
