@@ -2,7 +2,7 @@ import React, { component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { fetchPost } from '../actions/index.js';
+import { fetchPost, deletePost } from '../actions/index.js';
 
 class PostsShow extends React.Component {
 
@@ -21,6 +21,13 @@ class PostsShow extends React.Component {
       }
   }
 
+  onDeleteClick(id){
+
+    const { id }  = this.props.match.params;
+    this.props.deletePost(id)
+
+  }
+
   render (){
 
     const { post } = this.props;
@@ -34,6 +41,9 @@ class PostsShow extends React.Component {
     return (
       <div class="container">
         <Link className="" to="/"> Back </Link>
+        <Link className="btn btn-danger pull-xs-right" onClick={onDeleteClick}>
+          Delete This Post
+        </Link>
         <h3> { post.title } </h3>
         <h6> Categories: { post.categories } </h6>
         <p> {post.content} </p>
