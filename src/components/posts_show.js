@@ -1,9 +1,15 @@
 import React, { component} from 'react';
 import Link from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { fetchPost } from '../actions';
+import { fetchPost } from '../actions/index.js';
 
-class PostsShow extends React.Component{
+class PostsShow extends React.Component {
+
+  constructor(x){
+    super(x);
+    console.log('in constructor', x);
+  }
 
   componentDidMount(){
 
@@ -16,19 +22,34 @@ class PostsShow extends React.Component{
 
   render (){
 
-    var stuff = "<Link to="/" > Back to All Posts </Link> <textarea>{this.props.post.content} </textarea>";
+    const { post } = this.props;
+
+    if(!post) {
+      return <div> Loading ... </div>;
+    }
+
+    console.log('.. postsShow render post ..', this.props.post);
+
     return (
-      <div> ... </div>
+      <div class="container">
+        <h3> { post.title } </h3>
+        <h6> Categories: { post.categories } </h6>
+        <p> {post.content} </p>
+      </div>
     );
 
   }
 }
 
+
 function mapStateToProps(state, ownProps){
 
+  var post = state.posts[ownProps.match.params.id];
+  console.log('.. postsShow mapStateToProps got ..', state);
+
   return {
-    post: state.posts[ownProps.match.params.id]
+    post: post
   };
 }
 
-export default connect(null, { fetchPost })(PostsShow);
+export default connect(mapStateToProps, { fetchPost })(PostsShow);

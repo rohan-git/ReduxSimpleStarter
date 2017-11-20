@@ -11,6 +11,8 @@ export function fetchPosts(){
 
   const request = axios.get(`${ROOT_URL}/posts/${API_KEY}`);
 
+  console.log('fetchPOsts action', request);
+
   return {
     type: FETCH_POSTS,
     payload: request
@@ -21,6 +23,7 @@ export function fetchPost(id){
 
   const request = axios.get(`${ROOT_URL}/posts/${id}/${API_KEY}`);
 
+  console.log('fetchPOst action', request);
   return {
     type: FETCH_POST,
     payload: request

@@ -9,7 +9,7 @@ class PostsNew extends React.Component {
 
   renderField(field){
 
-    const { meta: {touched, error} } = field; // grab 1 property from object
+    const { meta: { touched, error } } = field; // grab 1 property from object
                                               // ALSO, within that obj
                                               // ---- grab only `touched` and `error`
 
