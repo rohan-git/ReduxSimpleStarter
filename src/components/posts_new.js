@@ -17,14 +17,24 @@ class PostsNew extends React.Component {
     // takes care of all of them
   }
 
+  onSubmit(values){
+    console.log(values);
+  }
+
   render(){
+
+    const { handleSubmit } = this.props;
+
+    var that = this;
+
     return (<div>
               <h3> Add A New Post</h3>
               <div className="col col-lg-6">
-              <form className="form form">
+              <form className="form form" onSubmit={handleSubmit(that.onSubmit)}>
                 <Field name="title" label="Title" component={this.renderField} />
                 <Field name="categories" label="Categories" component={this.renderField} />
                 <Field name="content" label="Content" component={this.renderField} />
+                <button type="submit" className="btn btn-primary">Submit!</button>
               </form>
               </div>
               <div className="col col-lg-6"> .. </div>
@@ -40,7 +50,7 @@ function validate(values){
   // if errors has values --> form is invalid
   const errors = {};
 
-  if(!values.title|| values.title.length < 3){
+  if(!values.title){
     errors.title = "Enter a title!";
   }
 
